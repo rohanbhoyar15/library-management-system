@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDEA College Of Engineering Manjari (BK)</h1>
+            <h1><i class="fas fa-boxes"></i> Library Management System</h1>
+            <p class="subtitle">Efficiently manage your library with ease</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2><i class="fas fa-plus-circle"></i> Add New Item</h2>
+                <form id="inventoryForm">
+                    <div class="form-group">
+                        <label for="itemName"><i class="fas fa-tag"></i> Book Name:</label>
+                        <input type="text" id="itemName" required placeholder="Enter bool name">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity"><i class="fas fa-cubes"></i> Quantity:</label>
+                        <input type="number" id="quantity" required min="0" placeholder="Enter quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="price"></i> Price:</label>
+                        <input type="number" id="price" required min="0" step="0.01" placeholder="Enter price">
+                    </div>
+                    <div class="form-group">
+                        <label for="category"><i class="fas fa-folder"></i> Category:</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="FE">FE</option>
+                            <option value="SE">SE</option>
+                            <option value="TE">TE / BE</option>
+                            <option value="Reading">Reading </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add Item
+                    </button>
+                </form>
+            </div>
+
+            <div class="inventory-section">
+                <h2><i class="fas fa-list"></i> Library List</h2>
+                <div class="actions">
+                    <input type="text" id="searchInput" placeholder="Search items...">
+                    <button onclick="exportToPDF()" class="btn-secondary">
+                        <i class="fas fa-file-pdf"></i> Export to PDF
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="inventoryTable">
+                        <thead>
+                            <tr>
+                                <th>Book Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
